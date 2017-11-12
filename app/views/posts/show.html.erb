@@ -1,3 +1,18 @@
 <h1><%= @post.title %></h1>
 <p><%= @post.content %></p>
 
+<% @comments.each do |comment| %>
+  <p>
+    <%= comment.body %>
+  </p>
+<% end %>
+<%= paginate @comments %>
+
+<h2>Add a comment:</h2>
+<%= form_for @comment, url: post_comments_path(@post) do |f| %>
+  <p>
+    <%= f.text_area :body %>
+  </p>
+
+  <%= f.submit %>
+<% end %>
