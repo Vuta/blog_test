@@ -9,23 +9,23 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li class="nav-item">
-            <%= link_to new_post_path, class: "nav-link" do %>
+            <%= link_to new_post_path, class: "btn btn-warning navbar-btn btn-custom-size" do %>
               <i class="glyphicon glyphicon-edit"></i> New Post
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+            <%= link_to destroy_user_session_path, method: :delete, class: "btn btn-danger navbar-btn btn-custom-size" do %>
               <i class="glyphicon glyphicon-log-out"></i> Log Out
             <% end %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to new_user_registration_path, class: "nav-link" do %>
+            <%= link_to new_user_registration_path, class: "btn btn-info navbar-btn btn-custom-size" do %>
               <i class="glyphicon glyphicon-user"></i> Sign Up
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to new_user_session_path, class: "nav-link" do %>
+            <%= link_to new_user_session_path, class: "btn btn-success navbar-btn btn-custom-size" do %>
               <i class="glyphicon glyphicon-log-in"></i> Sign In
             <% end %>
           </li>

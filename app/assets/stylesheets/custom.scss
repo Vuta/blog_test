@@ -6,7 +6,7 @@
   padding-bottom: 2px;
   padding-top: 2px;
 
-  .navbar-right .nav-item .nav-link {
+  .navbar-right .nav-item .navbar-btn {
     font-size: 13px;
     color: #fff;
 
@@ -18,4 +18,14 @@
       font-size: 10px;
     }
   }
+}
+
+.nav-item .btn-custom-size {
+  margin-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.nav-item .btn-sign-up {
+  background-color: red;
 }
