@@ -1,3 +1,51 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-meta {
+  font-size: 13px;
+  font-style: italic;
+  font-family: serif;
+  color: #868e96;
+}
+
+.post-title {
+  color: #00b5ad;
+
+  h2 {
+    font-size: 20px;
+    font-family: sans-serif;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #00918b;
+  }
+}
+
+.custom-avatar-size {
+  width: 75px;
+  height: 75px;
+}
+
+.comment-avatar-size {
+  width: 50px;
+  height: 50px;
+}
+
+.user-comments {
+  margin-bottom: 30px;
+}
+
+.like-button {
+  background-color: #00b5ad;
+  color: #fff;
+
+  &:hover {
+    color: #dfdfdf;
+  }
+}
+
+.meta-col {
+  border-left: 1px solid #dfdfdf;
+}

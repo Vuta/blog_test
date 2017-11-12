@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: :new
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     @posts = Post.order(created_at: :desc).page(params[:page]).per(50)
@@ -11,20 +11,20 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-
     unless @post
-      flash[:notice] = "The page you was looking for doesn't exist!"
+      flash[:danger] = "The page you was looking for doesn't exist!"
       redirect_to root_path
+    else
+      @comment = @post.comments.build
+      @comments = @post.comments.page(params[:page]).per(10)
     end
-    @comment = @post.comments.build
-    @comments = @post.comments.page(params[:page]).per(10)
   end
 
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:notice] = "New post created."
-      redirect_to root_path
+      flash[:success] = "New post created."
+      redirect_to @post
     else
       render :new
     end

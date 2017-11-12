@@ -1,2 +1,43 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.custom_navbar {
+  background-color: #2c4762;
+  padding-bottom: 2px;
+  padding-top: 2px;
+
+  .navbar-right .nav-item .navbar-btn {
+    font-size: 13px;
+    color: #fff;
+
+    &:hover {
+      color: #999;
+    }
+
+    i {
+      font-size: 10px;
+    }
+  }
+}
+
+.nav-item .btn-custom-size {
+  margin-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.nav-item .btn-sign-up {
+  background-color: red;
+}
+
+.devise-form {
+  margin-top: 75px;
+
+  .field {
+    margin-bottom: 20px;
+
+    .form-control {
+      border-radius: 0;
+    }
+  }
+}

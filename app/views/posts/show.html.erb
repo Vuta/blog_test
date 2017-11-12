@@ -1,18 +1,67 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h1 class="post-title"><%= @post.title %></h1>
 
-<% @comments.each do |comment| %>
-  <p>
-    <%= comment.body %>
-  </p>
-<% end %>
-<%= paginate @comments %>
+      <p class="post-meta">
+        Posted by <%= @post.user.username %> on <%= @post.created_at.strftime("%Y %b %d") %>
+      </p>
+      <p><%= @post.content %></p>
 
-<h2>Add a comment:</h2>
-<%= form_for @comment, url: post_comments_path(@post) do |f| %>
-  <p>
-    <%= f.text_area :body %>
-  </p>
+      <h3>Comments:</h3>
+      <hr>
+      <div class="row">
+        <% @comments.each do |comment| %>
+        <div class="col-md-12 user-comments">
+          <div class="col-md-1">
+            <%= image_tag comment.user.avatar, class: "img-responsive img-circle comment-avatar-size" %>
+          </div>
+          <div class="col-md-11">
+            <p class="post-title"><%= comment.user.username %></p>
+            <p>
+              <%= comment.body %>
+            </p>
+          </div>
+        </div>
+        <% end %>
+      <%= paginate @comments %>
+      </div>
 
-  <%= f.submit %>
-<% end %>
+
+      <%= form_for @comment, url: post_comments_path(@post), html: {class: "form-group"} do |f| %>
+        <p>
+          <%= f.text_area :body, class: "form-control" %>
+        </p>
+
+        <%= f.submit "Submit", class: "btn btn-sm btn-success" %>
+      <% end %>
+    </div>
+    <div class="col-md-3 meta-col">
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="text-center">0</h3>
+          <p class="text-center">Likes</p>
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-center"><%= @post.comments.count %></h3>
+          <p class="text-center">Comments</p>
+        </div>
+        <div class="col-md-12">
+          <div class="btn btn-block like-button">
+            <i class="glyphicon glyphicon-thumbs-up"></i> Like
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-5">
+            <%= image_tag @post.user.avatar(:thumb), class: "img-responsive img-circle custom-avatar-size" %>
+          </div>
+          <h4 class="post-title"><%= @post.user.username %></h4>
+          <p><%= @post.user.posts.count %> posts</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
