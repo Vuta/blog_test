@@ -29,3 +29,15 @@
 .nav-item .btn-sign-up {
   background-color: red;
 }
+
+.devise-form {
+  margin-top: 75px;
+
+  .field {
+    margin-bottom: 20px;
+
+    .form-control {
+      border-radius: 0;
+    }
+  }
+}
