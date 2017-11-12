@@ -6,5 +6,9 @@ Rails.application.routes.draw do
     resources :comments, only: :create
   end
 
+  namespace :api do
+    resources :posts, only: [:show, :index]
+  end
+
   root "posts#index"
 end
