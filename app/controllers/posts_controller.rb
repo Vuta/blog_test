@@ -16,6 +16,8 @@ class PostsController < ApplicationController
       flash[:notice] = "The page you was looking for doesn't exist!"
       redirect_to root_path
     end
+    @comment = @post.comments.build
+    @comments = @post.comments.page(params[:page]).per(10)
   end
 
   def create
