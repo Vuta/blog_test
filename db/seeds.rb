@@ -28,3 +28,7 @@ insert_post.chop!.chop! << ";" # remove the ", " at the end of query and add ";"
 
 ActiveRecord::Base.connection.execute(insert_user)
 ActiveRecord::Base.connection.execute(insert_post)
+
+# Update users password
+password = Devise::Encryptor.digest(User, '123456')
+User.update_all(encrypted_password: password)
