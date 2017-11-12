@@ -1,2 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.custom_navbar {
+  background-color: #2c4762;
+  padding-bottom: 2px;
+  padding-top: 2px;
+
+  .navbar-right .nav-item .nav-link {
+    font-size: 13px;
+    color: #fff;
+
+    &:hover {
+      color: #999;
+    }
+
+    i {
+      font-size: 10px;
+    }
+  }
+}
