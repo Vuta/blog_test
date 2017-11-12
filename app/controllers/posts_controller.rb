@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:notice] = "New post created."
-      redirect_to root_path
+      redirect_to @post
     else
       render :new
     end
