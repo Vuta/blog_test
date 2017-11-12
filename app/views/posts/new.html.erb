@@ -1,26 +1,28 @@
-<%= form_for @post do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@post.errors.count, "error") %> prohibited
-        this post from being saved:
-      </h2>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+<div class="container">
+
+  <%= form_for @post, html: {class: "form-group custom-margin-form"} do |f| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@post.errors.count, "error") %> prohibited
+          this post from being saved:
+        </h2>
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :title %> <br>
+      <%= f.text_field :title, class: "form-control" %>
     </div>
+
+    <div class="field">
+      <%= f.cktext_area :content, html: {id: "editor"} %>
+    </div>
+
+    <%= f.submit "Publish", class: "btn btn-md custom-button-color" %>
   <% end %>
-  <p>
-    <%= f.label :title %> <br>
-    <%= f.text_field :title %>
-  </p>
-
-  <p>
-    <%= f.label :content %> <br>
-    <%= f.text_area :content %>
-  </p>
-
-  <%= f.submit %>
-<% end %>
+</div>

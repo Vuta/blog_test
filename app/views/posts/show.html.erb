@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
-      <h1 class="post-title"><%= @post.title %></h1>
+      <h1 class="post-title"><%= @post.title.html_safe %></h1>
 
       <p class="post-meta">
         Posted by <%= @post.user.username %> on <%= @post.created_at.strftime("%Y %b %d") %>
       </p>
-      <p><%= @post.content %></p>
+      <p><%= @post.content.html_safe %></p>
 
       <h3>Comments:</h3>
       <hr>
@@ -47,7 +47,7 @@
           <p class="text-center">Comments</p>
         </div>
         <div class="col-md-12">
-          <div class="btn btn-block like-button">
+          <div class="btn btn-block custom-button-color">
             <i class="glyphicon glyphicon-thumbs-up"></i> Like
           </div>
         </div>
