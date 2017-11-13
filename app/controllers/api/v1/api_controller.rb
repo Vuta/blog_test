@@ -7,7 +7,8 @@ module Api
       private
 
       def validate_app_token
-        if request.headers[:app_token] != "temporary token"
+        byebug
+        if request.headers["HTTP_APP_TOKEN"] != "temporary token"
           render json: {message: "Unauthorized request"}, status: :unauthorized
         end
       end
