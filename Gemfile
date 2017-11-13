@@ -38,6 +38,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'paperclip'
 gem 'ckeditor'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   gem 'sqlite3'
