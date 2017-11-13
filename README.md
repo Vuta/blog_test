@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a rails application about building a blog for RTH test
 
-Things you may want to cover:
+Heroku link: https://whispering-anchorage-41246.herokuapp.com/
 
-* Ruby version
+# Installation
 
-* System dependencies
++ `git clone git@github.com:Vuta/blog_test.git`
++ `bundle`
++ `rails db:migrate && rails db:seed` (seeding data may take a few minutes)
 
-* Configuration
+# API for retrive posts
 
-* Database creation
+All the request must set `app_token` in the header to `temporary token`
 
-* Database initialization
+* To retrieve a single post: Send a GET request to API endpoint: https://whispering-anchorage-41246.herokuapp.com/api/v1/posts/:post_id
 
-* How to run the test suite
+* To retrieve list posts: Send a GET request to API endpoint: https://whispering-anchorage-41246.herokuapp.com/api/v1/posts, with the `params`: `page`, `per_page`. If those params are nil, all posts will be returned. 
 
-* Services (job queues, cache servers, search engines, etc.)
+* To search for posts: Send a GET request to API endpoint: https://whispering-anchorage-41246.herokuapp.com/api/v1/search, with the `params`: `title`, `user_id`, `page`, `per_page`. This will retrieve posts that contain the `title` or posted by `user_id` or both. If those params are nil, all posts will be returned.
 
-* Deployment instructions
-
-* ...
+### Developed by **Tran Anh Vu**
