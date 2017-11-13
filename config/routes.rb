@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :posts, only: [:show, :index]
-    get "/search", to: "search#index"
+    namespace :v1 do
+      resources :posts, only: [:show, :index]
+      get "/search", to: "search#index"
+    end
   end
 
   root "posts#index"
