@@ -12,7 +12,7 @@
     <%= render "layouts/header" %>
     <div class="container">
       <% flash.each do |type, message| %>
-        <div class="alert alert-<%= type %>">
+        <div class="alert <%= bootstrap_message_for(type) %>">
           <a href="#" data-dismiss="alert" class="close">x</a>
           <%= message %>
         </div>
