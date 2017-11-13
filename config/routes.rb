@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :posts, only: [:show, :index]
+    get "/search", to: "search#index"
   end
 
   root "posts#index"
